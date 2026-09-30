@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>User Onboarding from Email</title>
+<style>body{font-family:Segoe UI,Arial,sans-serif;max-width:1000px;margin:40px auto;padding:0 24px;color:#1f2937;line-height:1.55}
+h1{margin-bottom:4px}h2{margin-top:32px;border-bottom:2px solid #e5e7eb;padding-bottom:6px}.sub{color:#6b7280;margin-top:0}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;vertical-align:top}th{background:#f3f4f6}
+code,pre{background:#f3f4f6;border-radius:6px}code{padding:1px 5px}pre{padding:12px;overflow:auto}.fig svg{width:100%;height:auto;border:1px solid #e5e7eb;border-radius:10px}</style></head><body>
+<h1>User Onboarding from Email</h1><p class="sub">n8n automation: Gmail &rarr; parse details &rarr; root login &rarr; create user in the Spring Boot app</p>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#7a869a"/>
+    </marker>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .n{fill:#fff;stroke:#d5dae1;stroke-width:1.2}
+      .t{font-size:12.5px;font-weight:600;fill:#1f2937}
+      .s{font-size:10.5px;fill:#6b7280}
+      .g{fill:#f3f4f6;stroke:#c9ced6;stroke-dasharray:5 4}
+      .gt{font-size:13px;font-weight:700;fill:#374151}
+      .l{stroke:#7a869a;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .lb{font-size:10.5px;fill:#6b7280}
+    </style>
+  </defs>
+  <rect width="1200" height="540" fill="#fafbfc"/>
+  <text x="30" y="36" font-size="22" font-weight="700" fill="#111827">User Onboarding from Email</text>
+  <text x="30" y="58" font-size="13" fill="#6b7280">Gmail  →  parse details  →  root login  →  create user in Spring Boot app  →  confirm</text>
+  <g transform="translate(0,60)">
+    <rect class="g" x="350" y="40" width="810" height="140" rx="10"/>
+    <text class="gt" x="366" y="62">Sign in as root</text>
+    <rect class="g" x="30" y="250" width="500" height="170" rx="10"/>
+    <text class="gt" x="46" y="272">Submit new hire</text>
+    <rect class="g" x="580" y="230" width="580" height="210" rx="10"/>
+    <text class="gt" x="596" y="252">Confirm result</text>
+    <g transform="translate(30,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#ea4335"/><text x="14" y="23" class="t">Onboarding Email</text><text x="14" y="41" class="s">Gmail Trigger · 1 min</text></g>
+    <g transform="translate(190,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#f59e0b"/><text x="14" y="23" class="t">Extract Details</text><text x="14" y="41" class="s">Code</text></g>
+    <g transform="translate(370,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#8b5cf6"/><text x="14" y="23" class="t">Config</text><text x="14" y="41" class="s">Set · baseUrl, user</text></g>
+    <g transform="translate(530,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#3b82f6"/><text x="14" y="23" class="t">Open Login Page</text><text x="14" y="41" class="s">HTTP · GET /login</text></g>
+    <g transform="translate(690,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#f59e0b"/><text x="14" y="23" class="t">Read Cookie &amp; CSRF</text><text x="14" y="41" class="s">Code</text></g>
+    <g transform="translate(850,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#3b82f6"/><text x="14" y="23" class="t">Submit Root Login</text><text x="14" y="41" class="s">HTTP · POST /login</text></g>
+    <g transform="translate(1010,100)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#f59e0b"/><text x="14" y="23" class="t">Capture Session</text><text x="14" y="41" class="s">Code · new JSESSIONID</text></g>
+    <g transform="translate(50,320)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#3b82f6"/><text x="14" y="23" class="t">Open Onboarding</text><text x="14" y="41" class="s">HTTP · GET</text></g>
+    <g transform="translate(210,320)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#f59e0b"/><text x="14" y="23" class="t">Read Form CSRF</text><text x="14" y="41" class="s">Code</text></g>
+    <g transform="translate(370,320)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#3b82f6"/><text x="14" y="23" class="t">Submit Onboarding</text><text x="14" y="41" class="s">HTTP · POST</text></g>
+    <g transform="translate(610,320)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#10b981"/><text x="14" y="23" class="t">Succeeded?</text><text x="14" y="41" class="s">IF · 302 → "/"</text></g>
+    <g transform="translate(820,270)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#ea4335"/><text x="14" y="23" class="t">Mark Email Read</text><text x="14" y="41" class="s">Gmail</text></g>
+    <g transform="translate(820,380)" filter="url(#sh)"><rect width="130" height="56" rx="8" class="n"/><rect width="6" height="56" rx="3" fill="#dc2626"/><text x="14" y="23" class="t">Onboarding Failed</text><text x="14" y="41" class="s">Stop and Error</text></g>
+    <path class="l" d="M160 128H188"/>
+    <path class="l" d="M320 128H368"/>
+    <path class="l" d="M500 128H528"/>
+    <path class="l" d="M660 128H688"/>
+    <path class="l" d="M820 128H848"/>
+    <path class="l" d="M980 128H1008"/>
+    <path class="l" d="M1075 156V210H115V318"/>
+    <path class="l" d="M180 348H208"/>
+    <path class="l" d="M340 348H368"/>
+    <path class="l" d="M500 348H608"/>
+    <path class="l" d="M740 340H780V298H818"/>
+    <path class="l" d="M740 356H780V408H818"/>
+    <text class="lb" x="786" y="290">true</text>
+    <text class="lb" x="786" y="426">false</text>
+    <text x="970" y="303" font-size="12" font-weight="600" fill="#059669">User created</text>
+    <text x="970" y="413" font-size="12" font-weight="600" fill="#dc2626">Email stays unread</text>
+  </g>
+</svg>
+</div>
+<h2>How it works</h2><table><tr><th>#</th><th>Step</th><th>What happens</th></tr>
+<tr><td>1</td><td><b>Onboarding Email</b></td><td>Checks Gmail every minute for unread emails with subject <code>User onboarding</code></td></tr>
+<tr><td>2</td><td><b>Extract Details</b></td><td>Reads Name, Department, Age and Email from the body</td></tr>
+<tr><td>3</td><td><b>Config</b></td><td>Holds the app URL (baseUrl) and the root username</td></tr>
+<tr><td>4-7</td><td><b>Sign in as root</b></td><td>GET /login &rarr; read cookie and CSRF token &rarr; POST /login &rarr; keep the new JSESSIONID</td></tr>
+<tr><td>8-10</td><td><b>Submit new hire</b></td><td>GET /onboarding &rarr; read a fresh CSRF token &rarr; POST the user details</td></tr>
+<tr><td>11</td><td><b>Succeeded?</b></td><td>A 302 redirect to / means success</td></tr>
+<tr><td>12</td><td><b>Mark Email Read</b></td><td>Stops the email from being processed again</td></tr>
+<tr><td>13</td><td><b>Onboarding Failed</b></td><td>Stops with an error; the email stays unread for a retry</td></tr></table>
+<h2>Session flow</h2><pre>n8n  --GET /login-------------------------------------&gt;  App   200 + cookie A + csrf T1
+n8n  --POST /login (root, csrf T1, cookie A)----------&gt;  App   302 -&gt; /onboarding + cookie B
+n8n  --GET /onboarding (cookie B)---------------------&gt;  App   200 + csrf T2
+n8n  --POST /onboarding (details, csrf T2, cookie B)--&gt;  App   302 -&gt; /  (user created)</pre>
+<h2>Sample email</h2><pre>Subject: User onboarding
+Name-David Department-Automation Age-38 Email-davidautomation@gmail.com</pre>
+<h2>Setup notes</h2><ul>
+<li>The app runs on localhost:8081 and is made public with <code>cloudflared tunnel --url http://localhost:8081</code>.</li>
+<li>Quick tunnel addresses change on every restart. Update <b>Config &rarr; baseUrl</b> each time, then republish.</li>
+<li>All HTTP steps use Full Response, with Follow Redirects off and the Cookie header passed manually.</li>
+<li>Import the workflow in n8n with <b>&hellip; &rarr; Import from File</b>, then reconnect the Gmail credential.</li></ul>
+</body></html>

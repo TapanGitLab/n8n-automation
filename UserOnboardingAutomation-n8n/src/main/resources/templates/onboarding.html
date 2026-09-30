@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Onboarding</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="card">
+    <h2>User Onboarding</h2>
+    <form th:action="@{/onboarding}" th:object="${employee}" method="post">
+        <label>Name</label>
+        <input type="text" th:field="*{name}">
+        <span class="err" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+        <label>Department</label>
+        <input type="text" th:field="*{department}">
+        <span class="err" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></span>
+
+        <label>Age</label>
+        <input type="number" th:field="*{age}">
+        <span class="err" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+
+        <label>Email</label>
+        <input type="text" th:field="*{email}">
+        <span class="err" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+        <button type="submit">Create User</button>
+    </form>
+    <p class="hint"><a th:href="@{/}">&larr; Back to home</a></p>
+</div>
+</body>
+</html>

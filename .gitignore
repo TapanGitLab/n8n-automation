@@ -1,0 +1,44 @@
+# ===== n8n runtime data & secrets =====
+.n8n/
+n8n-data/
+.env
+.env.*
+!.env.example
+credentials/
+*.credentials.json
+
+# ===== Node.js =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Editor/IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Build/cache output =====
+dist/
+build/
+.cache/
+tmp/
+temp/
+
+# ===== Docker (if you run n8n via Docker locally) =====
+docker-compose.override.yml
+
+# ===== Database dumps (if any) =====
+*.sqlite
+*.db

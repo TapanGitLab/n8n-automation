@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="card wide">
+    <div class="topbar">
+        <span>Logged in as <b sec:authentication="name"></b>
+              (<span sec:authentication="principal.authorities"></span>)</span>
+        <form th:action="@{/logout}" method="post"><button class="small" type="submit">Logout</button></form>
+    </div>
+
+    <h2>Users</h2>
+    <div class="alert success" th:if="${message}" th:text="${message}"></div>
+
+    <a class="btn" th:href="@{/onboarding}" sec:authorize="hasRole('ROOT')">+ Onboard New User</a>
+    <p class="hint" sec:authorize="hasRole('USER')">You have read-only access. Only ROOT can onboard users.</p>
+
+    <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Age</th><th>Email</th></tr></thead>
+        <tbody>
+        <tr th:each="e : ${employees}">
+            <td th:text="${e.id}"></td>
+            <td th:text="${e.name}"></td>
+            <td th:text="${e.department}"></td>
+            <td th:text="${e.age}"></td>
+            <td th:text="${e.email}"></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(employees)}"><td colspan="5" class="hint">No users onboarded yet</td></tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
